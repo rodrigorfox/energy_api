@@ -3377,6 +3377,11 @@ mixin-deep@^1.2.0:
     for-in "^1.0.2"
     is-extendable "^1.0.1"
 
+moment@^2.29.4:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 mrm-core@^7.1.6:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/mrm-core/-/mrm-core-7.1.6.tgz#e6ecd984700d2614234424e98c186bd32e9a7bc0"
