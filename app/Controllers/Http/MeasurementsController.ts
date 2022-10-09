@@ -41,6 +41,10 @@ export default class MeasurementsController {
         return MeasurementsService.findAll()
     }
 
+    public async findAvailableDevices() {
+        return MeasurementsService.findAvailableDevices()
+    }
+
     public async findMensurements({ request, params }: HttpContextContract) {
         const { deviceId } = params
 

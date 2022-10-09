@@ -23,5 +23,6 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.group(() => {
     Route.resource('measurements', 'MeasurementsController')
     Route.post('/measurements/create-many', 'MeasurementsController.createMany')
+    Route.get('/devices', 'MeasurementsController.findAvailableDevices')
     Route.get('/device/:deviceId/measurements', 'MeasurementsController.findMensurements')
 }).prefix('/api')

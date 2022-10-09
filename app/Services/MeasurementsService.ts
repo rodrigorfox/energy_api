@@ -33,16 +33,27 @@ class MeasurementsService {
         return EnergyMeasurement.all()
     }
 
-    async findMensurements(deviceId, qs) {
-        const energyMeasurements = await Database
-            .from('energy_measurements')
-            .where('id_dispositivo', deviceId)
-            .andWhereBetween('timestamp', [ qs.startDate, qs.endDate])
-            .select(Database.raw(`date_trunc('${qs.resolution || "day"}', timestamp) as data`))
-            .select(Database.raw(`sum(activeEnergy::int) as accumulatedEnergy`))
-            .groupBy('data')
+    async findAvailableDevices() {
+        const devices = await Database.from('energy_measurements')
+        .select('id_dispositivo')
+        .groupBy('id_dispositivo')
 
-        return energyMeasurements
+        return devices
+    }
+
+    async findMensurements(deviceId, qs) {
+        const deviceList = deviceId.split('&')
+
+        const queryBuilder = Database.from('energy_measurements')
+            queryBuilder.whereIn('id_dispositivo', deviceList)
+            queryBuilder.andWhereBetween('timestamp', [ qs.startDate, qs.endDate])
+            if (qs.resolution && qs.resolution === 'raw')
+                return await queryBuilder.select('*')
+            
+            queryBuilder.select(Database.raw(`date_trunc('${qs.resolution || "day"}', timestamp) as data`))
+            queryBuilder.select(Database.raw(`sum(activeEnergy::int) as accumulatedEnergy`))
+
+        return queryBuilder.groupBy('data')
     }
 }
 
