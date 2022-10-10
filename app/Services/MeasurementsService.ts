@@ -29,8 +29,18 @@ class MeasurementsService {
         return measurement.save()
     }
 
+    async findOne(idMeasurement) {
+        return EnergyMeasurement.findOrFail(idMeasurement)
+    }
+
     async findAll() {
         return EnergyMeasurement.all()
+    }
+
+    async delete(idMeasurement) {
+        const measurement = await EnergyMeasurement.findOrFail(idMeasurement)
+
+        return measurement.delete()
     }
 
     async findAvailableDevices() {

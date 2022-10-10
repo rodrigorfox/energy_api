@@ -41,6 +41,18 @@ export default class MeasurementsController {
         return MeasurementsService.findAll()
     }
 
+    async show({ params }: HttpContextContract) {
+        const idMeasurement = params.id
+    
+        return MeasurementsService.findOne(idMeasurement)
+    }
+
+    public async destroy({ params }: HttpContextContract) {
+        const idMeasurement = params.id
+    
+        return MeasurementsService.delete(idMeasurement)
+    }
+
     public async findAvailableDevices() {
         return MeasurementsService.findAvailableDevices()
     }
