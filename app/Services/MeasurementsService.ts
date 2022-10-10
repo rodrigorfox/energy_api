@@ -50,10 +50,11 @@ class MeasurementsService {
             if (qs.resolution && qs.resolution === 'raw')
                 return await queryBuilder.select('*')
             
+            queryBuilder.select('id_dispositivo')
             queryBuilder.select(Database.raw(`date_trunc('${qs.resolution || "day"}', timestamp) as data`))
             queryBuilder.select(Database.raw(`sum(activeEnergy::int) as accumulatedEnergy`))
 
-        return queryBuilder.groupBy('data')
+        return queryBuilder.groupBy(['data', 'id_dispositivo'])
     }
 }
 
