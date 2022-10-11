@@ -21,8 +21,6 @@ Para iniciar o app, apenas utilize o comando:
 ou
 
     $ npm install
-    
-## 💿 &nbsp;&nbsp; Rodando o App
      
 ## ❗️  &nbsp;&nbsp; Instruções do banco de dados
 - Após instalar o projeto, criar um banco de dados em Postgres e configurar a conexão no arquivo .env
