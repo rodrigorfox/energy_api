@@ -18,14 +18,15 @@ Para baixar as dependências do projeto apenas rode o comando:
 Para iniciar o app, apenas utilize o comando:
 
     $ node ace serve --watch
+ou
 
-    ou
+    $ npm install
     
-     $ yarn dev
+## 💿 &nbsp;&nbsp; Rodando o App
      
 ## ❗️  &nbsp;&nbsp; Instruções do banco de dados
 - Após instalar o projeto, criar um banco de dados em Postgres e configurar a conexão no arquivo .env
-- Para criar a tabela, apenas rode o comando:
+Para criar a tabela, apenas rode o comando:
 
     $ node ace migration:run
 
