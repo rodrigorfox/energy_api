@@ -1,7 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { schema } from '@ioc:Adonis/Core/Validator'
 import MeasurementsService from 'App/Services/MeasurementsService'
-var moment = require('moment')
 
 export default class MeasurementsController {
     public async store({ request }: HttpContextContract) {
