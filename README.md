@@ -26,6 +26,7 @@ ou
      
 ## ❗️  &nbsp;&nbsp; Instruções do banco de dados
 - Após instalar o projeto, criar um banco de dados em Postgres e configurar a conexão no arquivo .env
+
 Para criar a tabela, apenas rode o comando:
 
     $ node ace migration:run
